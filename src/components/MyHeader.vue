@@ -7,12 +7,13 @@
         <div class="content">
           <el-row :gutter="0" type="flex" justify="center">
 
-            <el-col :xs="11" :sm="10" :md="9" :lg="8" :xl="7">
+            <el-col :xs="11" :sm="10" :md="9" :lg="8" :xl="7" router>
+
               <div v-for="item in titles1"
                    :index="item.key"
                    v-bind:class="{'selected':index===item.key,'mousein':mouseindex===item.key}"
                    @mouseenter="mouseenter(item.key)" @mouseleave="mouseleave()" class="title-item">
-                <a v-bind:to="item.key" class="title-item-link">
+                <a v-bind:to="item.key" class="title-item-link" @click="changePage(item.key)">
                   <p class="c-title">{{ item.name_cn }}</p>
                   <p class="e-title">{{ item.name_en }}</p>
                 </a>
@@ -95,6 +96,9 @@ export default {
     },
     mouseleave() {
       this.mouseindex = null
+    },
+    changePage(val) {
+      this.$router.replace(val);
     }
   }
 }
