@@ -4,10 +4,15 @@
       <el-row :gutter="0" type="flex" justify="center">
         <el-col :xs="20" :sm="18" :md="16" :lg="14" :xl="14">
 
-          <div class="group-wrapper animated bounceInDown">
-<!--            <el-image class="group-bg" fit="fill" src=""></el-image>-->
-            <el-image class="group-ph" src=""></el-image>
-          </div>
+          <!--          <div class="group-wrapper animated bounceInDown">-->
+          <!--&lt;!&ndash;            <el-image class="group-bg" fit="fill" src=""></el-image>&ndash;&gt;-->
+          <!--            <el-image class="group-ph" src=""></el-image>-->
+          <!--          </div>-->
+          <el-carousel :interval="6000" type="card" height="500px">
+            <el-carousel-item v-for="item in this.images" :key="item.url">
+              <el-image :src="item.url"></el-image>
+            </el-carousel-item>
+          </el-carousel>
 
           <el-divider></el-divider>
 
@@ -39,48 +44,73 @@
 </template>
 
 <script>
-import MyHeader from "./MyHeader";
+    import MyHeader from "./MyHeader";
 
-export default {
-  name: "Index",
-  components: {MyHeader}
-}
+    export default {
+        name: "Index",
+        data() {
+            return{
+                images:[
+                    {url: require("../assets/group_photo1.jpg")},
+                    {url: require("../assets/group_photo2.jpg")},
+                    {url: require("../assets/group_photo3.jpg")},
+                ]
+            }
+
+        },
+        components: {MyHeader},
+    }
 </script>
 
 <style scoped>
 
-h4 {
-  margin: 20px 0 10px 0;
-}
+  h4 {
+    margin: 20px 0 10px 0;
+  }
 
-p {
-  line-height: 1.7;
-  color: #606266;
-}
+  p {
+    line-height: 1.7;
+    color: #606266;
+  }
 
 
-.group-wrapper {
-  height: 400px;
-  width: 100%;
-  margin: 10px auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+  .group-wrapper {
+    height: 400px;
+    width: 100%;
+    margin: 10px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-.group-bg {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  filter: blur(20px);
-  transform: scale(1.1);
-}
+  .group-bg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    filter: blur(20px);
+    transform: scale(1.1);
+  }
 
-.group-ph {
-  height: 400px;
-  width: 800px;
-}
+  .group-ph {
+    height: 400px;
+    width: 800px;
+  }
 
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
 </style>
