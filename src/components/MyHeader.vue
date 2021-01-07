@@ -11,7 +11,7 @@
 
               <div v-for="item in titles1"
                    :index="item.key"
-                   v-bind:class="{'selected':index===item.key,'mousein':mouseindex===item.key}"
+                   v-bind:class="{'selected': index===item.key,'mousein':mouseindex===item.key}"
                    @mouseenter="mouseenter(item.key)" @mouseleave="mouseleave()" class="title-item">
                 <a v-bind:to="item.key" class="title-item-link" @click="changePage(item.key)">
                   <p class="c-title">{{ item.name_cn }}</p>
@@ -30,7 +30,7 @@
               <div v-for="item in titles2"
                    v-bind:class="{'selected':index===item.key,'mousein':mouseindex===item.key}"
                    @mouseenter="mouseenter(item.key)" @mouseleave="mouseleave()" class="title-item">
-                <a v-bind:to="item.key" class="title-item-link">
+                <a v-bind:to="item.key" class="title-item-link" @click="changePage(item.key)">
                   <p class="c-title">{{ item.name_cn }}</p>
                   <p class="e-title">{{ item.name_en }}</p>
                 </a>
@@ -55,6 +55,7 @@ export default {
   },
   data() {
     return {
+      currentPath: '/',
       titles1: [
         {
           key: '/',
@@ -100,6 +101,10 @@ export default {
     changePage(val) {
       this.$router.replace(val);
     }
+  },
+  mounted() {
+    this.currentPath = this.$route.fullPath;
+    console.log(this.currentPath);
   }
 }
 </script>
