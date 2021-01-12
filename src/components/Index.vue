@@ -8,7 +8,7 @@
           <!--&lt;!&ndash;            <el-image class="group-bg" fit="fill" src=""></el-image>&ndash;&gt;-->
           <!--            <el-image class="group-ph" src=""></el-image>-->
           <!--          </div>-->
-          <el-carousel :interval="6000" type="card" height="500px">
+          <el-carousel :interval="6000" type="card" height="320px">
             <el-carousel-item v-for="item in this.images" :key="item.url">
               <el-image :src="item.url"></el-image>
             </el-carousel-item>
