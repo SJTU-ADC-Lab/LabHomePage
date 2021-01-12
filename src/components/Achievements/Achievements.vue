@@ -81,4 +81,8 @@ li {
   text-align: justify;
   text-justify: inter-ideograph
 }
+
+.main-content {
+  min-height: calc(100vh - 130px) /* 160px = header 70px + footer 60px */
+}
 </style>
