@@ -5,7 +5,7 @@ import Members from "../components/Members/Members";
 import Achievements from "../components/Achievements/Achievements";
 import Events from "../components/Events/Events";
 import Joinus from "../components/Joinus/Joinus";
-import Friends from "../components/Friends/Friends";
+import Links from "../components/Links/Links";
 
 Vue.use(Router)
 
@@ -37,9 +37,9 @@ export default new Router({
       component: Joinus
     },
     {
-      path: '/friends',
-      name: 'Firends',
-      component: Friends
+      path: '/links',
+      name: 'Links',
+      component: Links
     }
   ],
   mode: 'history'

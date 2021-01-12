@@ -84,9 +84,9 @@ export default {
           name_en: 'events'
         },
         {
-          key: '/friends',
+          key: '/links',
           name_cn: '友情链接',
-          name_en: 'friends'
+          name_en: 'links'
         }],
       mouseindex: ''
     }
